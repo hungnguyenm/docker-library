@@ -8,6 +8,6 @@ services:
       USERNAME: admin
       PASSWORD: admin
     volumes:
-      - ./data:/root/workspace
+      - ./workspace:/root/workspace
     ports:
       - "9001:8181"
