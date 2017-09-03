@@ -10,7 +10,7 @@ env:
   global:
     - DOCKER_COMPOSE_VERSION=1.15.0
   matrix:
-    - IMAGE=ubuntu-cloud9
+    - IMAGE=ubuntu-c9sdk
 
 before_script:
   # Update docker-ce to the latest version
