@@ -12,20 +12,11 @@ RUN apt-get update && apt-get install -y \
 	nodejs \
 	python \
 	software-properties-common \
-	tmux
+	tmux \
+ && rm -rf /var/lib/apt/lists/* \
 
 # Change `nodejs` to `node`
 RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
-
-# Install Oracle Java 8
-RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
- && add-apt-repository -y ppa:webupd8team/java \
- && apt-get update \
- && apt-get install -y oracle-java8-installer \
- && rm -rf /var/lib/apt/lists/* \
- && rm -rf /var/cache/oracle-jdk8-installer
-
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Install Cloud9 SDK
 RUN git clone git://github.com/c9/core.git c9sdk \
