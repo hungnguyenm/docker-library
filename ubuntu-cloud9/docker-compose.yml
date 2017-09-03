@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+    image: ubuntu-c9sdk:latest
+    environment:
+      USERNAME: admin
+      PASSWORD: admin
+    volumes:
+      - ./data:/root/workspace
+    ports:
+      - "9001:8181"

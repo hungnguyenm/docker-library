@@ -1,0 +1,27 @@
+language: bash
+services: docker
+
+notifications:
+  email: false
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.15.0
+  - IMAGE=ubuntu-cloud9
+
+before_script:
+  # Update docker-ce to the latest version
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  # Update docker-compose
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  # For each project:
+  - cd "$IMAGE"
+
+script:
+  - docker-compose build
+
+after_script:
+  - docker images
