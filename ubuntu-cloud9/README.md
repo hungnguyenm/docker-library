@@ -15,7 +15,7 @@ The image includes, but is not limited to:
 
 #### Detailed Information ####
 
-The service stack contains a nginx proxy container and a web container running Cloud9 server. The nginx proxy enforces SSL/TLS connection by default. You should replace the sample certificate and private key with the corresponding ones for your domain.
+The service stack contains a nginx proxy container and a web container running Cloud9 server. The nginx proxy enforces SSL/TLS connection by default. You should replace the sample certificate and private key with the corresponding ones for your domain (e.g., obtained from [Let's Encrypt](https://letsencrypt.org)).
 
 Several configuration can be changed via `.env` environment file as below:
 
