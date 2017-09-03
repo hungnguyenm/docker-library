@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 	python \
 	software-properties-common \
 	tmux \
- && rm -rf /var/lib/apt/lists/* \
+ && rm -rf /var/lib/apt/lists/*
 
 # Change `nodejs` to `node`
 RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
