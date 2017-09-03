@@ -1,0 +1,1 @@
+These are sample certificate and private key. You should replace them with the corresponding ones for your domain.

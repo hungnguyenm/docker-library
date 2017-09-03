@@ -1,13 +1,22 @@
 version: '3'
 services:
+  nginx:
+    image: nginx:1.13
+    links:
+      - web:web
+    ports:
+      - $NGINX_PORT_HTTPS:443
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+      - ./certs:/data/certs:ro
+    restart: always
   web:
     build:
-      context: .
+      context: ./web
     image: ubuntu-c9sdk:latest
     environment:
-      USERNAME: admin
-      PASSWORD: admin
+      USERNAME: $C9_USERNAME
+      PASSWORD: $C9_PASSWORD
     volumes:
       - ./workspace:/root/workspace
-    ports:
-      - "9001:8181"
+    restart: always
