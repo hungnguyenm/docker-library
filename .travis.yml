@@ -7,8 +7,10 @@ notifications:
     on_failure: always
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.15.0
-  - IMAGE=ubuntu-cloud9
+  global:
+    - DOCKER_COMPOSE_VERSION=1.15.0
+  matrix:
+    - IMAGE=ubuntu-cloud9
 
 before_script:
   # Update docker-ce to the latest version
