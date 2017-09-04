@@ -23,7 +23,4 @@ RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 RUN git clone git://github.com/c9/core.git c9sdk \
  && c9sdk/scripts/install-sdk.sh
 
-ENV USERNAME admin
-ENV PASSWORD admin
-
-ENTRYPOINT node c9sdk/server.js --listen 0.0.0.0 --auth $USERNAME:$PASSWORD -w /root/workspace/
+ENTRYPOINT node c9sdk/server.js --listen 0.0.0.0 -w /root/workspace/

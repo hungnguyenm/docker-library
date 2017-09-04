@@ -20,13 +20,17 @@ Several configuration can be changed via `.env` environment file as below:
 
 <table>
     <tr><th>NGINX_PORT_HTTPS</th><td>HTTPS listening port on host machine</td></tr>
-    <tr><th>C9_USERNAME</th><td>Basic Auth - username - for Cloud9 Server</td></tr>
-    <tr><th>C9_PASSWORD</th><td>Basic Auth - password - for Cloud9 Server</td></tr>
 </table>
 
 #### Authentication Settings ####
 
-The default username/password included in environment file **must** be changed before deploying the container. You can change the default values in the environment file named `.env`, or override with shell environment variables.
+The default username/password included for nginx **must** be changed before deploying the container. You can change the default values in `nginx/auth` file using `htpasswd` command from Apache Utils. The structure of the file should be like this:
+
+```
+login:passwordhash
+```
+
+For example, the content equivalent for username `admin` and password `admin` is `admin:$apr1$HRN3GBa1$4lNlSolqVCY15MLaZDLs00`.
 
 #### Deploy Containers ####
 
