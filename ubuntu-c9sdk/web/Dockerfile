@@ -6,13 +6,14 @@ WORKDIR /root
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-	build-essential \
-	curl \
-	git \
-	nodejs \
-	python \
-	software-properties-common \
-	tmux \
+		build-essential \
+		curl \
+		git \
+		nodejs \
+		python \
+		software-properties-common \
+		tmux \
+ && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 # Change `nodejs` to `node`
