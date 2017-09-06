@@ -5,8 +5,6 @@ LABEL maintainer="Hung Nguyen<minhhung.ng@gmail.com>"
 WORKDIR /root
 
 # Install required packages
-RUN add-apt-repository ppa:team-gcc-arm-embedded/ppa
-
 RUN apt-get update && apt-get install -y \
 		build-essential \
 		curl \
@@ -16,7 +14,12 @@ RUN apt-get update && apt-get install -y \
 		nodejs \
 		python \
 		software-properties-common \
-		tmux \
+		tmux
+
+RUN add-apt-repository ppa:team-gcc-arm-embedded/ppa
+
+RUN apt-get update && apt-get install -y \
+		gcc-arm-none-eabi \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
