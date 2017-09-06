@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 		mercurial \
 		nodejs \
 		python \
+		python-pip \
 		software-properties-common \
 		tmux
 
