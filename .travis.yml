@@ -11,6 +11,7 @@ env:
     - DOCKER_COMPOSE_VERSION=1.15.0
   matrix:
     - IMAGE=ubuntu-c9sdk
+    - IMAGE=mbedcli-c9sdk
 
 before_script:
   # Update docker-ce to the latest version

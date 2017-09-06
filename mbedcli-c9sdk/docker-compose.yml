@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.13
+    links:
+      - web:web
+    ports:
+      - $NGINX_PORT_HTTPS:443
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+      - ./certs:/data/certs:ro
+    restart: always
+  web:
+    build:
+      context: ./web
+    image: mbedcli-c9sdk:latest
+    volumes:
+      - ./workspace:/root/workspace
+    restart: always
