@@ -6,16 +6,16 @@ WORKDIR /root
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-		build-essential \
-		curl \
-		gcc-arm-none-eabi \
-		git \
-		mercurial \
-		nodejs \
-		python \
-		python-pip \
-		software-properties-common \
-		tmux
+        build-essential \
+        curl \
+        gcc-arm-none-eabi \
+        git \
+        mercurial \
+        nodejs \
+        python \
+        python-pip \
+        software-properties-common \
+        tmux
 
 RUN add-apt-repository ppa:team-gcc-arm-embedded/ppa
 
